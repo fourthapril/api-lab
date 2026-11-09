@@ -39,4 +39,5 @@
 - Step A1, input domain model ของ `POST /api/ratings` แบ่งเป็น 4 characteristics คือจำนวนดาว, ชนิดของดาว, pizza และ token โดย base choice คือ 3 ดาวแบบจำนวนเต็ม, pizza ที่มีอยู่ และ token ของผู้ใช้เอง
 - Step A2, base choice coverage ใช้ 9 test cases: `1 + (3-1) + (4-1) + (2-1) + (3-1) = 9` และ README ระบุ test ที่ครอบคลุมทุก block แล้ว
 - Step A3, boundary test ของ update ใช้ค่า 0, 1, 5 และ 6 โดย 1 และ 5 ต้องได้ 200 ส่วน 0 และ 6 ต้องได้ 400 และค่าดาวเดิมต้องไม่เปลี่ยนเมื่อ update ถูกปฏิเสธ
+- Step A4, status code ที่วัดได้เมื่อ user อื่นพยายามอ่าน, แก้ไข และลบ rating คือ GET 404, PUT 400 และ DELETE 400 ตามลำดับ
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
