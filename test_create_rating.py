@@ -58,7 +58,7 @@ def test_stars_with_wrong_type_or_missing_are_rejected(api, auth, pizza_id, new)
 
 # C3: a rating for a pizza that does not exist is rejected.
 def test_rating_for_missing_pizza_is_rejected(api, auth):
-    new = {"pizza_id": 99999999, "stars": 3}
+    new = {"pizza_id": 999999999, "stars": 3}
 
     res = api.post("/api/ratings", json=new, headers=auth)
 

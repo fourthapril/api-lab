@@ -1,7 +1,5 @@
 # API Lab
 
-โปรเจกต์นี้เป็นการทดสอบ QuickPizza API ด้วย Python, `requests` และ `pytest`
-
 ## การติดตั้งและรันทดสอบ
 
 ```powershell
@@ -11,8 +9,6 @@ pip install -r requirements.txt
 pytest -v
 ```
 
-สร้างผู้ใช้ใหม่และข้อมูลที่ใช้ใน test ผ่าน fixtures ทุกครั้ง เพื่อให้ test แยกจากกันและไม่แก้ไขข้อมูลของผู้ใช้อื่น
-
 ## Input domain model: POST /api/ratings
 
 ตารางนี้แบ่ง input space ตามกฎของ API และใช้ base choice เป็นค่าที่พบบ่อยที่สุด
@@ -21,5 +17,14 @@ pytest -v
 |---|---|---|---|
 | C1: จำนวนดาว | ต่ำกว่า 1, 1 ถึง 5 (base), มากกว่า 5 | `0`, `3`, `6` | `test_base_choice_is_saved`, `test_stars_out_of_range` |
 | C2: ชนิดของดาว | จำนวนเต็ม (base), ทศนิยม, ข้อความ, ไม่มี field | `3`, `3.5`, `"3"`, ไม่มี field | `test_base_choice_is_saved`, `test_stars_with_wrong_type_or_missing_are_rejected` |
-| C3: pizza | มีอยู่ (base), ไม่มีอยู่ | `pizza_id`, `99999999` | `test_base_choice_is_saved`, `test_rating_for_missing_pizza_is_rejected` |
+| C3: pizza | มีอยู่ (base), ไม่มีอยู่ | `pizza_id`, `999999999` | `test_base_choice_is_saved`, `test_rating_for_missing_pizza_is_rejected` |
 | C4: token | token ของผู้ใช้เอง (base), ไม่มี token, token ผิดรูปแบบ | `auth`, ไม่มี header, token สั้น | `test_base_choice_is_saved`, `test_rating_without_token_is_rejected`, `test_rating_with_short_token_is_rejected` |
+
+## ไฟล์ทดสอบหลัก
+
+- `test_names.py`, `test_tools.py` และ `test_pizza.py` ทดสอบการอ่านข้อมูลและการตรวจ response ของ pizza
+- `conftest.py` เก็บ session และ fixtures สำหรับ user, pizza และ rating
+- `test_users.py`, `test_ratings.py` และ `test_refused.py` ทดสอบ create, read, update, delete และคำขอที่ต้องถูกปฏิเสธ
+- `test_excluded_tools.py` ตรวจ input partitions และเก็บ defect ที่ตอบ 500 ไว้เป็น `xfail`
+- `test_create_rating.py`, `test_update_rating.py` และ `test_rating_owner.py` ครอบคลุม Part A
+
