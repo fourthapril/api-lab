@@ -8,4 +8,5 @@
 - Step 0.4, ชื่อ pizza ที่ได้: The Fresh Bolognese
 - Step 0.4, คำขอ POST พร้อม `veg.json` ได้ status 200 และส่วนผสมทุกตัวมี `vegetarian: true`
 - Step 0.5, การทดสอบผ่าน Python shell: ตรวจสอบ names, tools และ vegetarian pizza สำเร็จ
+- Step 0.5, Python `requests` ให้ผลเหมือน curl: names และ tools อ่านได้, vegetarian pizza ตอบ status 200 และมีชื่อ pizza
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
