@@ -17,4 +17,5 @@
 - Step 0.11, fixture `auth` สร้าง user ชื่อสุ่ม, login และทดสอบว่า user ใหม่เริ่มต้นด้วย ratings ว่าง
 - Step 0.12, ผลการทดสอบแบบไม่มี session ทั้ง 3 รอบจะบันทึกหลังรันจริง; จากนั้นลบไฟล์ flaky test ออกจากชุดทดสอบถาวร
 - Step 0.13, fixture `pizza_id` สร้าง pizza ของ test และ `test_ratings.py` สร้าง rating ใหม่ได้ status 201 พร้อม id, stars และ pizza_id
+- Step 0.14, fixture `rating` สร้างและลบข้อมูลหลัง test; ทดสอบอ่าน, เปลี่ยนดาว และลบ rating ได้ครบ โดยผลลัพธ์คือ 200, 200 และ 204 ตามลำดับ และการอ่านหลังลบได้ 404
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
