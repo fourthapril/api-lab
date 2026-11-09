@@ -33,4 +33,8 @@
 - Expected result: status 400 Bad Request พร้อม JSON error message
 - Actual result: status 500 Internal Server Error พร้อม response body ว่าง
 - Severity: Medium เพราะ input ที่ไม่สามารถสร้าง pizza ได้ควรถูกจัดการเป็นข้อผิดพลาดของข้อมูล ไม่ใช่ server error
+
+## ส่วนที่ A
+
+- Step A1, input domain model ของ `POST /api/ratings` แบ่งเป็น 4 characteristics คือจำนวนดาว, ชนิดของดาว, pizza และ token โดย base choice คือ 3 ดาวแบบจำนวนเต็ม, pizza ที่มีอยู่ และ token ของผู้ใช้เอง
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
