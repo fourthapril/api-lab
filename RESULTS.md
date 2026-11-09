@@ -12,4 +12,5 @@
 - Step 0.6, `test_names.py` ผ่าน: status 200 และมีชื่อ Margherita ในรายการ
 - Step 0.7, `test_tools.py` ผ่าน: status 200 และ response ตรงกับ tools ทั้ง 3 รายการ
 - Step 0.8, `test_pizza.py` ตรวจสอบ vegetarian ingredients และกรณีไม่มี token ที่ต้องได้ 401
+- Step 0.9, ทดลองสร้าง user ชื่อสุ่ม, login ด้วย session เดิม และอ่าน ratings ของ user ใหม่ได้เป็นรายการว่าง
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
