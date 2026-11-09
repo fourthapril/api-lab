@@ -19,4 +19,18 @@
 - Step 0.13, fixture `pizza_id` สร้าง pizza ของ test และ `test_ratings.py` สร้าง rating ใหม่ได้ status 201 พร้อม id, stars และ pizza_id
 - Step 0.14, fixture `rating` สร้างและลบข้อมูลหลัง test; ทดสอบอ่าน, เปลี่ยนดาว และลบ rating ได้ครบ โดยผลลัพธ์คือ 200, 200 และ 204 ตามลำดับ และการอ่านหลังลบได้ 404
 - Step 0.15, เพิ่ม tests สำหรับ username ซ้ำ, password ผิด และ username ว่าง โดยตรวจทั้ง status code และข้อความ error
+
+- Step 0.16, blocks ของจำนวน tools ที่ถูก exclude:
+  - 0 tools: `[]`
+  - 1 tool: `["Knife"]` และ `["Scissors"]`
+  - 2 tools: `["Knife", "Pizza cutter"]`
+  - 3 tools: `["Knife", "Pizza cutter", "Scissors"]` และย้ายไปเป็น test defect แบบ xfail
+
+## รายงาน defect
+
+- Title: การ exclude tools ทั้ง 3 รายการทำให้ API ตอบ Internal Server Error
+- Request: `POST /api/pizza` พร้อม `excludedTools` เป็น `Knife`, `Pizza cutter` และ `Scissors`
+- Expected result: status 400 Bad Request พร้อม JSON error message
+- Actual result: status 500 Internal Server Error พร้อม response body ว่าง
+- Severity: Medium เพราะ input ที่ไม่สามารถสร้าง pizza ได้ควรถูกจัดการเป็นข้อผิดพลาดของข้อมูล ไม่ใช่ server error
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
