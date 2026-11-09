@@ -37,4 +37,5 @@
 ## ส่วนที่ A
 
 - Step A1, input domain model ของ `POST /api/ratings` แบ่งเป็น 4 characteristics คือจำนวนดาว, ชนิดของดาว, pizza และ token โดย base choice คือ 3 ดาวแบบจำนวนเต็ม, pizza ที่มีอยู่ และ token ของผู้ใช้เอง
+- Step A2, base choice coverage ใช้ 9 test cases: `1 + (3-1) + (4-1) + (2-1) + (3-1) = 9` และ README ระบุ test ที่ครอบคลุมทุก block แล้ว
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
