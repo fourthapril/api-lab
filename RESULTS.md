@@ -15,4 +15,6 @@
 - Step 0.9, ทดลองสร้าง user ชื่อสุ่ม, login ด้วย session เดิม และอ่าน ratings ของ user ใหม่ได้เป็นรายการว่าง
 - Step 0.10, เพิ่ม `QuickPizza` session fixture ที่ใช้ร่วมกันตลอดการรันทดสอบ เพื่อรักษา cookie ของ load balancer
 - Step 0.11, fixture `auth` สร้าง user ชื่อสุ่ม, login และทดสอบว่า user ใหม่เริ่มต้นด้วย ratings ว่าง
+- Step 0.12, ผลการทดสอบแบบไม่มี session ทั้ง 3 รอบจะบันทึกหลังรันจริง; จากนั้นลบไฟล์ flaky test ออกจากชุดทดสอบถาวร
+- Step 0.13, fixture `pizza_id` สร้าง pizza ของ test และ `test_ratings.py` สร้าง rating ใหม่ได้ status 201 พร้อม id, stars และ pizza_id
 - Step 0.2, status code และ headers: HTTP 200, `Content-Type: application/json` และมี `set-cookie` ของ AWSALB
